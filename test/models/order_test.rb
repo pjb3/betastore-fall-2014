@@ -7,8 +7,8 @@ class OrderTest < ActiveSupport::TestCase
 
     order.line_items.create(
       product: products(:hat),
-      quantity: 1)
+      quantity: 2)
 
-    assert_equal 9.99, order.total_amount
+    assert_equal 19.98, order.reload.total_amount
   end
 end
