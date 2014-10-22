@@ -1,0 +1,22 @@
+<% if flash[:notice].present? %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<h1>Products</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Created At</th>
+  </tr>
+  <% for product in @products %>
+    <tr>
+      <td><%= link_to product.id, admin_product_path(product) %></td>
+      <td><%= link_to product.name, admin_product_path(product) %></td>
+      <td><%= product.price %></td>
+      <td><%= product.created_at %></td>
+    </tr>
+  <% end %>
+</table>

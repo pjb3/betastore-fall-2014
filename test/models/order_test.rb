@@ -9,6 +9,6 @@ class OrderTest < ActiveSupport::TestCase
       product: products(:hat),
       quantity: 2)
 
-    assert_equal 19.98, order.reload.total_amount
+    assert_equal 19.98, order.reload.total_amount.to_f
   end
 end

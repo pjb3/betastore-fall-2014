@@ -41,3 +41,7 @@ gem 'spring',        group: :development
 group :development do
   gem 'hirb'
 end
+
+group :development, :test do
+  gem 'pry'
+end
