@@ -2,3 +2,9 @@ Name: <%= @product.name %>
 Price: <%= number_to_currency @product.price %>
 
 <%= image_tag @product.image_url %>
+
+<p>
+  <%= link_to "Delete", admin_product_path(@product),
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' } %>
+</p>
