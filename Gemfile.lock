@@ -73,6 +73,8 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    puma (2.9.2)
+      rack (>= 1.1, < 2.0)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -89,6 +91,11 @@ GEM
     rails-assets-bootstrap (3.3.0)
       rails-assets-jquery (>= 1.9.1)
     rails-assets-jquery (2.1.1)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.2)
+    rails_stdout_logging (0.0.3)
     railties (4.1.6)
       actionpack (= 4.1.6)
       activesupport (= 4.1.6)
@@ -140,8 +147,10 @@ DEPENDENCIES
   launchy
   pg
   pry
+  puma
   rails (= 4.1.6)
   rails-assets-bootstrap
+  rails_12factor
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   spring
