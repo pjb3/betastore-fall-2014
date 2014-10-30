@@ -1,18 +1,6 @@
-<% for error in @product.errors.full_messages %>
-  <%= error %>
-<% end %>
+<ol class="breadcrumb">
+  <li><%= link_to "Products", admin_products_path %></li>
+  <li class="active">New Product</li>
+</ol>
 
-<%= form_for [:admin, @product], { html: { role: 'form' } } do |f| %>
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control' %>
-  </div>
-
-  <%= f.label :price %>
-  <%= f.text_field :price %>
-
-  <%= f.label :image_url %>
-  <%= f.url_field :image_url %>
-
-  <%= f.submit %>
-<% end %>
+<%= render 'form' %>

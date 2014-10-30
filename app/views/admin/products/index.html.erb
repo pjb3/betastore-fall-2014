@@ -1,22 +1,22 @@
-<% if flash[:notice].present? %>
-  <div class="notice"><%= flash[:notice] %></div>
-<% end %>
-
 <h1>Products</h1>
+
+<div class="row">
+  <div class="col-md-1 col-md-offset-11" style="margin-bottom: 15px">
+    <%= link_to "New Product", new_admin_product_path, class: 'btn btn-primary' %>
+  </div>
+</div>
 
 <table class="table">
   <tr>
-    <th>ID</th>
     <th>Name</th>
     <th>Price</th>
     <th>Created At</th>
   </tr>
   <% for product in @products %>
     <tr>
-      <td><%= link_to product.id, admin_product_path(product) %></td>
       <td><%= link_to product.name, admin_product_path(product) %></td>
-      <td><%= product.price %></td>
-      <td><%= product.created_at %></td>
+      <td><%= number_to_currency product.price %></td>
+      <td><%= product.created_at.strftime('%a %b %e %Y, %I:%M %p') %></td>
     </tr>
   <% end %>
 </table>

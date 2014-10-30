@@ -20,6 +20,28 @@ class Admin::ProductsController < ApplicationController
     end
   end
 
+  def edit
+    @product = Product.find(params[:id])
+  end
+
+  def update
+    @product = Product.find(params[:id])
+    if @product.update(product_params)
+      redirect_to admin_product_path(@product), notice: "Product #{@product.id} was updated"
+    else
+      render 'new'
+    end
+  end
+
+  def destroy
+    @product = Product.find(params[:id])
+    if @product.destroy
+      redirect_to admin_products_path, notice: "Product #{@product.id} was deleted"
+    else
+      render 'show'
+    end
+  end
+
   private
   def product_params
     params.require(:product).permit!

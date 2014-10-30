@@ -1,0 +1,30 @@
+<div class="row">
+  <% if @product.errors.present? %>
+    <div class="alert alert-danger">
+      <ul>
+        <% for error in @product.errors.full_messages %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form_for [:admin, @product], { html: { role: 'form' } } do |f| %>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :price %>
+      <%= f.text_field :price, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :image_url %>
+      <%= f.url_field :image_url, class: 'form-control' %>
+    </div>
+
+    <%= f.submit "Save", class: 'btn btn-success' %>
+  <% end %>
+</div>

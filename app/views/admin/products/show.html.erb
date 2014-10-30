@@ -1,10 +1,20 @@
-Name: <%= @product.name %>
-Price: <%= number_to_currency @product.price %>
+<ol class="breadcrumb">
+  <li><%= link_to "Products", admin_products_path %></li>
+  <li class="active">Product #<%= @product.id %></li>
+</ol>
 
-<%= image_tag @product.image_url %>
+<div class="row">
+  <h1><%= @product.name %></h1>
+  <%= image_tag @product.image_url, class: "img-responsive" %>
+  <p><%= number_to_currency @product.price %></p>
+</div>
 
-<p>
+<div class="row">
+  <%= link_to "Edit", edit_admin_product_path(@product),
+                        class: 'btn btn-primary' %>
+
   <%= link_to "Delete", admin_product_path(@product),
+                        class: 'btn btn-danger',
                         method: :delete,
                         data: { confirm: 'Are you sure?' } %>
-</p>
+</div>
