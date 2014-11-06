@@ -4,6 +4,8 @@ Betastore::Application.routes.draw do
 
   namespace :admin do
     resources :products
+    get  '/login' => 'logins#new'
+    post '/login' => 'logins#create'
     # get '/products/new' => 'products#new', as: 'new_product'
     # get '/products/:product_id' => 'products#show', as: 'product'
     # get '/products' => 'products#index'

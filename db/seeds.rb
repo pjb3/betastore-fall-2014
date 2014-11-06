@@ -20,3 +20,5 @@
     LineItem.create(order: order, quantity: 1, product: coffee)
   end
 end
+
+User.create!(email: 'mail@paulbarry.com', password: 'secret')

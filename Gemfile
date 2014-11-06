@@ -17,7 +17,9 @@ gem 'spring',        group: :development
 gem 'uglifier', '>= 1.3.0'
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
+
+gem 'brakeman', require: false
 
 # Use unicorn as the app server
 # gem 'unicorn'
