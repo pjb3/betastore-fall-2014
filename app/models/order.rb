@@ -3,6 +3,12 @@ class Order < ActiveRecord::Base
   has_many :line_items
   has_many :products, :through => :line_items
 
+  after_commit :queue_processing, on: :create
+
+  def queue_processing
+    OrderWorker.perform_async(id)
+  end
+
   def self.recent
     where("placed_at > ?", 7.days.ago)
   end
