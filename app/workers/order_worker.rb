@@ -11,7 +11,3 @@ class OrderWorker
     end
   end
 end
-
-if @order.save
-  redirect_to @order, 'We are processing your order'
-end
